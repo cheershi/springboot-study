@@ -52,7 +52,7 @@
         }
     }
 
-StopWatch主要是监控启动过程，统计启动时间，检测应用是否已经启动或者停止。
+#### StopWatch主要是监控启动过程，统计启动时间，检测应用是否已经启动或者停止。
 
 对于getSpringFactoriesInstances这个方法你应该不陌生来吧。这里也是从META-INF/spring.factories中获取类型为org.springframework.boot.SpringApplicationRunListener的配置值，这个默认的配置值为：org.springframework.boot.context.event.EventPublishingRunListener。我们进入到EventPublishingRunListener这个类看一下它的构造函数
 
@@ -72,7 +72,7 @@ StopWatch主要是监控启动过程，统计启动时间，检测应用是否�
 
 通过上面的分析，我们可以看到EventPublishingRunListener把SpringApplication中的监听器，都放到了SimpleApplicationEventMulticaster中，进行了统一的管理。listeners.starting();
 
-DefaultApplicationArguments的构造函数的内容
+### DefaultApplicationArguments的构造函数的内容
 
     public DefaultApplicationArguments(String[] args) {
         //首先判断不能为null，
@@ -93,7 +93,7 @@ DefaultApplicationArguments的构造函数的内容
 
 在配置应用参数的时候，是这样这样配置的 - -key=value，为什么要以- -开头呢？在SimpleCommandLineArgsParser的parse方法中你会找到答案
 
-prepareEnvironment（）方法：
+### prepareEnvironment（）方法：
 
     private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments) {
         //获取环境变量 
@@ -112,7 +112,7 @@ prepareEnvironment（）方法：
         return (ConfigurableEnvironment)environment;
     }
     
-getOrCreateEnvironment（）方法：
+### getOrCreateEnvironment（）方法：
 
         private ConfigurableEnvironment getOrCreateEnvironment() {
         //如果已经创建过存放环境变量的对象了，则直接返回
@@ -133,7 +133,7 @@ getOrCreateEnvironment（）方法：
     }
     
 
-Banner printedBanner = printBanner(environment);
+##### Banner printedBanner = printBanner(environment);
 
 这句话是输出SpringBoot的Banner信息，可以从指定的位置加载信息，可以输出为文字形式，也可以输出为图片形式，如我们常见的SpringBoot的logo就是在这里输出的
  
@@ -145,7 +145,7 @@ Banner printedBanner = printBanner(environment);
     SpringBootBanner() {
     }
     
-createApplicationContext()方法：
+### createApplicationContext()方法：
 
     protected ConfigurableApplicationContext createApplicationContext() {
         Class<?> contextClass = this.applicationContextClass;
