@@ -78,7 +78,7 @@
 	//寻找启动主类
     }
     
-deduceWebApplicationType（）方法
+### deduceWebApplicationType（）方法
 
     	private WebApplicationType deduceWebApplicationType() {
         if (ClassUtils.isPresent("org.springframework.web.reactive.DispatcherHandler", (ClassLoader)null) && !ClassUtils.isPresent("org.springframework.web.servlet.DispatcherServlet", (ClassLoader)null) && !ClassUtils.isPresent("org.glassfish.jersey.server.ResourceConfig", (ClassLoader)null)) {
@@ -100,7 +100,7 @@ deduceWebApplicationType（）方法
  通过是否存在web所需要的接口来判断是否是web应用，就是看类路径下是能加载到"org.springframework.web.reactive.DispatcherHandler"，"org.springframework.web.servlet.DispatcherServlet"
  
  
- getSpringFactoriesInstance（）方法
+ ### getSpringFactoriesInstance（）方法
  
     private <T> Collection<T> getSpringFactoriesInstances(Class<T> type) {
         return this.getSpringFactoriesInstances(type, new Class[0]);
@@ -160,7 +160,7 @@ loadFactoryNames的第一个参数是要加载的类的类型，第二个参数�
         }
     }
     
-deduceMainApplicationClass()方法：
+### deduceMainApplicationClass()方法：
 
      private Class<?> deduceMainApplicationClass() {
         try {
